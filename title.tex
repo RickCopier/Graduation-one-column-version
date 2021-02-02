@@ -1,0 +1,65 @@
+\begin{titlepage}
+
+
+\begin{center}
+
+%% Print the title in cyan.
+{\makeatletter
+\largetitlestyle\fontsize{44}{48}\selectfont\@title
+%\largetitlestyle\color{tudelft-cyan}\Huge\@title
+\makeatother}
+
+\vspace{1cm}
+
+%% Print the optional subtitle in black.
+{\makeatletter
+\ifx\@subtitle\undefined\else
+    \bigskip
+   {\tudsffamily\fontsize{24}{28}\selectfont\@subtitle}    
+    %\titlefont\titleshape\LARGE\@subtitle
+\fi
+\makeatother}
+
+\bigskip
+\bigskip
+% hier je afbeelding voor de voorkant
+\includegraphics[width=0.75\linewidth]{images/kikker_voorkant.png}
+\bigskip
+\bigskip
+
+%% Print the name of the author.
+{\makeatletter
+%\largetitlefont\Large\bfseries\@author
+\largetitlestyle\fontsize{26}{26}\selectfont\@author
+\makeatother}
+
+\vspace{1cm}
+
+\fontsize{15}{15} \tudsffamily \today
+
+\vfill
+
+\begin{table}[H]
+    \Large
+    \centering
+    \begin{tabular}{l|l}
+    R. Copier & 4354095
+    \end{tabular}
+\end{table}
+
+
+
+
+%\centering{\includegraphics{cover/logo_black}}
+
+
+\end{center}
+
+\begin{tikzpicture}[remember picture, overlay]
+    \node at (current page.south)[anchor=south,inner sep=0pt]{
+        \includegraphics{cover/logo_black}
+    };
+\end{tikzpicture}
+
+
+\end{titlepage}

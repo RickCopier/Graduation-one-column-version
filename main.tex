@@ -1,0 +1,196 @@
+\documentclass[article, whitelogo, oneside]{tudelft-report}
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+
+\usepackage{listings}
+\lstset{numbers=left, 
+                numberstyle=\tiny, 
+                breaklines=true,
+                numbersep=5pt,
+                xleftmargin=.25in,
+                xrightmargin=.25in} 
+%\usepackage{natbib}
+
+% \usepackage[backend=biber,citestyle=authoryear,defernumbers=true]{biblatex}
+% \bibliography{report.bib}
+
+\usepackage[backend=biber,citestyle=numeric,defernumbers=true]{biblatex}
+\bibliography{report.bib}
+\usepackage{changes}
+\usepackage{enumitem}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{footmisc}
+\usepackage[justification=centering]{caption}
+\setitemize{itemsep=-0.2em}
+\setenumerate{itemsep=0.3em}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{floatrow}
+\usepackage{ragged2e}
+\usepackage{url}
+\usepackage{amsmath} 
+\usepackage{booktabs} 
+\usepackage{float}
+\usepackage{pdfpages}
+\floatstyle{plaintop}
+\restylefloat{table}
+\usepackage{array}
+\setlength\parindent{0pt}
+\usepackage{makecell}
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{subcaption}
+%\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{eurosym}
+\usepackage{xcolor}
+\renewcommand\cite{\parencite}
+%% nomenclature
+\usepackage[intoc]{nomencl}
+\usepackage{indentfirst}
+\usepackage[euler]{textgreek}
+\usepackage{wrapfig}
+\usepackage{changepage}
+\usepackage{lipsum}
+\usepackage{diagbox}
+\usepackage{makecell}
+
+\makenomenclature
+
+\usepackage{etoolbox}
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{S}{List of Symbols}{%
+  \ifstrequal{#1}{A}{List of Abbreviations}{}}%
+]}
+\renewcommand{\nompreamble}{\begin{multicols}{2}}
+\renewcommand{\nompostamble}{\end{multicols}}
+\setlength{\nomitemsep}{0pt}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+
+\newcommand{\mycbox}[1]{\tikz{\path[draw=#1,fill=#1] (0,0) rectangle (0.3cm,0.3cm);}}
+
+\definecolor{blueviolet}{RGB}{51, 51, 230}
+\definecolor{lightblue}{RGB}{153, 255, 255}
+\definecolor{collagen_color}{RGB}{0, 102, 102}
+\definecolor{glands_color}{RGB}{255, 153, 51}
+\definecolor{phalanx_color}{RGB}{200, 100, 0}
+\definecolor{intercalary_color}{RGB}{189, 183, 107}
+\definecolor{muscle_color}{RGB}{255, 99, 71}
+
+\usepackage{floatrow}
+% Table float box with bottom caption, box width adjusted to content
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+
+\DeclareCaptionLabelFormat{andtable}{#1~#2  \&  \tablename~\thetable}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+%\newwatermark*[firstpage,color=red!50,angle=45,scale=3,xpos=0,ypos=0]{Confidential}
+
+% \usepackage{tikz}
+% \usetikzlibrary{shapes.geometric, arrows}
+% \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text width=13em, text centered, draw=black, fill=white!30]
+
+% \tikzstyle{process} = [rectangle, rounded corners, minimum width=0.5cm, minimum height=0.5cm, text width=15em, text centered, draw=black, fill=white!30]
+% %\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+% \tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+
+\begin{document}
+
+
+\frontmatter
+
+
+%possibly include a pdf frontpage
+%\includepdf[]{images/Frontpage.pdf}
+
+
+%% Uncomment following 16 lines for a cover with a picture on the lower half only
+\title[black]{Adhesional device based on the tree frogs adhesive pads}
+
+\subtitle[tudelft-black]{}
+\author[tudelft-black]{}
+
+%\affiliation{Technische Universiteit Delft}
+%\coverimage{images/pipeline.jpg}
+\covertext[tudelft-white]{}
+\setpagecolor{white}
+
+
+
+%% Include an optional title page.
+\input{title}
+% \input{chapters/Abstract.tex}
+% \input{chapters/summary.tex}
+\input{chapters/Preface.tex}
+
+\newpage
+\thispagestyle{plain} % empty
+\mbox{}
+
+\input{chapters/Abstract}
+
+\newpage
+\thispagestyle{plain} % empty
+\mbox{}
+
+% \newgeometry{top=5mm, bottom=22mm}
+\setcounter{tocdepth}{2}
+{\small\tableofcontents}
+% \restoregeometry
+%\input{chapters/Glossary}
+%\printnomenclature
+
+
+\mainmatter
+\input{chapters/1-Introduction}
+\input{chapters/2-Methods}
+\input{chapters/3-Results}
+\input{chapters/4-Discussion}
+\input{chapters/5-Conclusion}
+
+
+%\input{chapters/Appendix_A.tex}
+%\bibliography{report}
+
+%\addcontentsline{toc}{chapter}{Bibliography}
+%\chapter*{Bibliography}
+\printbibliography
+
+% \newrefcontext[sorting=none]
+% \begingroup
+% \let\clearpage\relax
+% \printbibliography[heading=subbibliography, type=book, title={{Books}}] 
+% \endgroup
+% \newrefcontext[sorting= none]
+% \begingroup
+% \let\clearpage\relax
+% \printbibliography[heading=subbibliography, type=article, title={{Reports, Theses and Individual Papers}}]
+% \endgroup
+% \newrefcontext[sorting=none]
+% \begingroup
+% \let\clearpage\relax
+% \printbibliography[heading=subbibliography,  type=misc, title={{Electronic Publications}}]
+% \endgroup
+% \restoregeometry
+
+
+%% Use letters for the chapter numbers of the appendices.
+\appendix
+%\input{chapters/Appendix_A.tex}
+\end{document}
